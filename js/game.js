@@ -29,19 +29,11 @@ let dir;
 function direction(event) {
 	if(event.keyCode == 37 && dir != "right")
 		dir = "left";
-		if(event.keyCode == 65 && dir != "right")
-		dir = "left";
 	else if(event.keyCode == 38 && dir != "down")
-		dir = "up";
-		else if(event.keyCode == 87 && dir != "down")
 		dir = "up";
 	else if(event.keyCode == 39 && dir != "left")
 		dir = "right";
-		else if(event.keyCode == 68 && dir != "left")
-		dir = "right";
 	else if(event.keyCode == 40 && dir != "up")
-		dir = "down";
-		else if(event.keyCode == 83 && dir != "up")
 		dir = "down";
 }
 
@@ -52,13 +44,13 @@ function eatTail(head, arr) {
 	}
 }
 
-function drawGame() {
+function drawGame($name) {
 	ctx.drawImage(ground, 0, 0);
 
 	ctx.drawImage(foodImg, food.x, food.y);
 
 	for(let i = 0; i < snake.length; i++) {
-		ctx.fillStyle = i == 0 ? "pink" : "beige" ;
+		ctx.fillStyle = i == 0 ? "pink" : "beige";
 		ctx.fillRect(snake[i].x, snake[i].y, box, box);
 	}
 
@@ -84,7 +76,7 @@ function drawGame() {
 
 	if(snakeX < box || snakeX > box * 17
 		|| snakeY < 3 * box || snakeY > box * 17){
-		alert('Вы проиграли! Ваш счет: ' + (snake.length +0) + '. Нажмите кнопку «Закрыть» для начала новой игры!');
+			alert(', вы проиграли! Ваш счет: ' + (snake.length +0));
 	}
 
 	if(dir == "left") snakeX -= box;
@@ -105,5 +97,3 @@ function drawGame() {
 let game = setInterval(drawGame, 120);
 
 
-
-   
